@@ -1,11 +1,327 @@
-h1{
-    /* color: black;
-    background-color: gray;
-    border-radius: 10px; */
-    font-family: sans-serif;
-    margin-top: 30px;
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-h3{
-    font-family: serif;
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+}
+
+.background-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.converter-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+}
+
+.card-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.converter-form {
+    padding: 30px;
+}
+
+.amount-section {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.amount-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    font-size: 18px;
+    font-weight: 600;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    color: #333;
+}
+
+.amount-input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.input-icon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #667eea;
+    font-weight: 700;
+}
+
+.currencies-section {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.currency-selector {
+    flex: 1;
+}
+
+.currency-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.currency-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.currency-box:hover {
+    border-color: #667eea;
+    background: #f0f3ff;
+}
+
+.flag-icon {
+    width: 32px;
+    height: 24px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.currency-select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.currency-select option {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.swap-button-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 6px 12px 6px;
+}
+
+.swap-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #e0e0e0;
+    background: white;
+    color: #667eea;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.swap-btn:hover {
+    border-color: #667eea;
+    background: #f0f3ff;
+    transform: rotate(180deg);
+}
+
+.swap-btn:active {
+    transform: rotate(180deg) scale(0.95);
+}
+
+.result-section {
+    margin-bottom: 25px;
+}
+
+.result-box {
+    background: linear-gradient(135deg, #f0f3ff 0%, #f5f7ff 100%);
+    border: 2px solid #e8ecff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.result-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #667eea;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.result-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+}
+
+.btn-convert {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-convert:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-convert:active {
+    transform: translateY(0);
+}
+
+.card-footer {
+    padding: 20px 30px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+.text-muted {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .converter-card {
+        max-width: 100%;
+        border-radius: 12px;
+    }
+
+    .card-header {
+        padding: 30px 20px;
+    }
+
+    .card-header h1 {
+        font-size: 24px;
+    }
+
+    .converter-form {
+        padding: 20px;
+    }
+
+    .currencies-section {
+        flex-wrap: wrap;
+    }
+
+    .swap-button-container {
+        width: 100%;
+        padding: 12px 0;
+        margin: 0 -6px;
+    }
+
+    .swap-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .result-value {
+        font-size: 22px;
+    }
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
